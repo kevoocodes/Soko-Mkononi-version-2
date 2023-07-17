@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 09, 2023 at 09:10 AM
+-- Generation Time: Jul 13, 2023 at 09:32 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -65,7 +65,9 @@ CREATE TABLE `Buyer` (
 INSERT INTO `Buyer` (`id`, `fullname`, `email`, `username`, `password`, `profileImage`, `status`, `dateCreated`) VALUES
 (1, 'KelvinMsindai', '97kelvin1@gmail.com', 'kevoo', '827ccb0eea8a706c4c34a16891f84e7b', 0x6173736574732f696d672f757365722e706e67, 0, '2022-05-02'),
 (2, 'KelvinAron', 'kelvin@gmail.com', 'kelvin', '827ccb0eea8a706c4c34a16891f84e7b', 0x6173736574732f696d672f757365722e706e67, 0, '2022-05-02'),
-(3, 'GoodluckEmmanueli', 'octo@example.com', 'octopizo', '827ccb0eea8a706c4c34a16891f84e7b', 0x6173736574732f696d672f757365722e706e67, 0, '2022-05-02');
+(3, 'GoodluckEmmanueli', 'octo@example.com', 'octopizo', '827ccb0eea8a706c4c34a16891f84e7b', 0x6173736574732f696d672f757365722e706e67, 0, '2022-05-02'),
+(4, 'AlenMasanja', 'mende@example.com', 'mende', '827ccb0eea8a706c4c34a16891f84e7b', 0x6173736574732f696d672f757365722e706e67, 0, '2023-07-11'),
+(5, 'Frenhoajnanak', 'frenho@example.com', 'frenho', '827ccb0eea8a706c4c34a16891f84e7b', 0x6173736574732f696d672f757365722e706e67, 0, '2023-07-11');
 
 -- --------------------------------------------------------
 
@@ -135,10 +137,13 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `userId`, `productId`, `quantity`, `orderdate`, `paymentMethod`, `orderStatus`) VALUES
-(1, 3, '11', 1, '2022-06-18 09:22:12', 'TIGO-PESA', '1'),
+(1, 3, '11', 1, '2022-06-18 09:22:12', 'TIGO-PESA', 'Delivered'),
 (2, 3, '12', 2, '2022-06-18 09:22:12', 'TIGO-PESA', '1'),
 (5, 3, '11', 1, '2022-06-21 08:11:30', 'TIGO-PESA', 'Delivered'),
-(6, 3, '11', 1, '2022-06-27 14:11:49', 'TIGO-PESA', '1');
+(6, 3, '11', 1, '2022-06-27 14:11:49', 'TIGO-PESA', '1'),
+(7, 2, '16', 1, '2023-07-11 04:43:05', 'M-PESA', 'Delivered'),
+(8, 4, '18', 1, '2023-07-11 08:33:12', '', 'Delivered'),
+(9, 4, '20', 1, '2023-07-11 08:33:12', '', '1');
 
 -- --------------------------------------------------------
 
@@ -308,7 +313,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `Buyer`
 --
 ALTER TABLE `Buyer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -326,7 +331,7 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `ordertrackinghistory`

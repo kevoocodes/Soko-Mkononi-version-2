@@ -1,4 +1,5 @@
 <?php 
+error_reporting(0);
 include("includes/config.php");  //connecting to the database 
 include("includes/form_handler/login_handler.php");  //login handler
 ?>

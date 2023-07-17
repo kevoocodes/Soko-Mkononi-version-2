@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 include("../includes/config.php");
 if (strlen($_SESSION['id']==0)) {
     header("location: ../login.php");
@@ -155,11 +156,11 @@ echo "<script>alert('Shipping Address has been updated');</script>";
                                         <td class="align-middle">
                                             <div class="input-group quantity mx-auto" style="width: 100px;">
                                                 <div class="input-group-btn">
-                                                    <button class="btn btn-sm btn-primary btn-minus" >
-                                                    <i class="fa fa-minus"></i>
+                                                    <button class="btn btn-sm btn-primary btn-minus">
+                                                        <i class="fa fa-minus"></i>
                                                     </button>
                                                 </div>
-                                                <input type="text" class="form-control form-control-sm bg-secondary text-center" value="<?php echo $_SESSION['cart'][$row['id']]['quantity']; ?>" name="quantity[<?php echo $row['id']; ?>]">
+                                                <input type="text" class="form-control form-control-sm bg-secondary text-center quantity-input" value="<?php echo $_SESSION['cart'][$row['id']]['quantity']; ?>" name="quantity[<?php echo $row['id']; ?>]">
                                                 <div class="input-group-btn">
                                                     <button class="btn btn-sm btn-primary btn-plus">
                                                         <i class="fa fa-plus"></i>
@@ -167,6 +168,7 @@ echo "<script>alert('Shipping Address has been updated');</script>";
                                                 </div>
                                             </div>
                                         </td>
+
                                         <!-- <td class="align-middle">$150</td> -->
                                         <td class="align-middle"><input type="checkbox" name="remove_code[]" value="<?php echo htmlentities($row['id']);?>" /></td>
                                     </tr>
@@ -320,8 +322,29 @@ echo "<script>alert('Shipping Address has been updated');</script>";
 <!-- Back to Top -->
 <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
+<script>
+    $(document).ready(function() {
+        // Plus button click
+        $('.btn-plus').on('click', function() {
+            var input = $(this).closest('.input-group').find('.quantity-input');
+            var newVal = parseInt(input.val()) + 1;
+            input.val(newVal).trigger('change');
+        });
+
+        // Minus button click
+        $('.btn-minus').on('click', function() {
+            var input = $(this).closest('.input-group').find('.quantity-input');
+            var newVal = parseInt(input.val()) - 1;
+            if (newVal >= 0) {
+                input.val(newVal).trigger('change');
+            }
+        });
+    });
+</script>
+
 
 <!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 <script src="lib/easing/easing.min.js"></script>

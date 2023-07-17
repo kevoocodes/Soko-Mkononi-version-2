@@ -100,13 +100,13 @@ if(isset($_POST['register'])) {
 
                     //create session variables for session
                     
-                    $_SESSION['email'] = $email;
-                    header("location: buyer/dashboard.php");
+                    //$_SESSION['email'] = $email;
+                    header("location: login.php");
 
 
                     //clear sesssion variables
                     // $_SESSION['email'] = "";
-                    $_SESSION['username'] = "";
+                    // $_SESSION['username'] = "";
                 }
 
             }
